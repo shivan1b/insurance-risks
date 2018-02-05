@@ -1,0 +1,52 @@
+# For more information about the configurations used in this file, please
+# see the Travis CI documentation: https://docs.travis-ci.com
+
+language: python
+sudo: false
+python:
+- '3.5.2'
+
+addons:
+  postgresql: "9.5"
+  apt:
+    packages:
+      - postgresql-9.5-postgis-2.3
+
+cache:
+  directories:
+    - $HOME/.cache/pip
+
+before_cache:
+  - rm -f $HOME/.cache/pip/log/debug.log
+
+install:
+  - pip install ansible
+  - pip install -r requirements/development.txt
+
+before_script:
+- export DATABASE_URL=postgres://postgres@localhost/Risk
+- psql -c "CREATE DATABASE Risk;" -U postgres
+
+script:
+- flake8
+- py.test --cov -v --tb=native
+- ansible-playbook -i provisioner/hosts provisioner/site.yml --syntax-check
+
+notifications:
+  email:
+    on_success: change  # [always|never|change]
+    on_failure: always  # [always|never|change]
+
+deploy:
+  provider: heroku
+  buildpack: python
+  strategy: api
+  api_key:
+    # travis encrypt $(heroku auth:token) --add deploy.api_key
+    secure: <add_heroku_auth_token_here>
+  app:
+    master: Risk-dev
+    qa: Risk-qa
+    prod: Risk-prod
+  on:
+    repo: shivan1b/django-dynamic-models

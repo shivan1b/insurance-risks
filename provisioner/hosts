@@ -1,0 +1,66 @@
+[vagrant]
+192.168.33.12
+
+[vagrant:vars]
+vm=1
+deploy_environment=vagrant
+project_namespace={{ project_name }}-{{ deploy_environment }}
+user=vagrant
+project_path=/home/vagrant/django-dynamic-models
+venv_path=/home/vagrant/venv
+django_requirements_file=requirements/development.txt
+django_settings="settings.development"
+use_letsencrypt=False
+pg_db=Risk
+pg_user=vagrant
+pg_password=vagrant
+domain_name=vagrant.Risk.com
+
+[dev]
+dev.Risk.com
+
+[dev:vars]
+vm=0
+deploy_environment=dev
+user=ubuntu
+project_namespace={{ project_name }}-{{ deploy_environment }}
+project_path=/home/ubuntu/{{ deploy_environment }}/django-dynamic-models
+venv_path=/home/ubuntu/{{ deploy_environment }}/{{ project_name }}-venv
+use_letsencrypt=False
+letsencrypt_email=n
+django_requirements_file=requirements.txt
+django_settings="settings.production"
+domain_name=dev.Risk.com
+
+
+[qa]
+qa.Risk.com
+
+[qa:vars]
+vm=0
+deploy_environment=qa
+user=ubuntu
+project_namespace={{ project_name }}-{{ deploy_environment }}
+project_path=/home/ubuntu/{{ deploy_environment }}/django-dynamic-models
+venv_path=/home/ubuntu/{{ deploy_environment }}/{{ project_name }}-venv
+use_letsencrypt=False
+letsencrypt_email=n
+django_requirements_file=requirements.txt
+django_settings="settings.production"
+domain_name=qa.Risk.com
+
+[production]
+Risk.com
+
+[production:vars]
+vm=0
+deploy_environment=prod
+user=ubuntu
+project_namespace={{ project_name }}-{{ deploy_environment }}
+project_path=/home/ubuntu/{{ deploy_environment }}/django-dynamic-models
+venv_path=/home/ubuntu/{{ deploy_environment }}/{{ project_name }}-venv
+use_letsencrypt=False
+letsencrypt_email=n
+django_requirements_file=requirements.txt
+django_settings="settings.production"
+domain_name=Risk.com
