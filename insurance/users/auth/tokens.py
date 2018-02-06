@@ -4,7 +4,7 @@ from django.apps import apps
 from django.conf import settings
 
 # Django Dynamic Models Stuff
-from Risk.base import exceptions as exc
+from insurance.base import exceptions as exc
 
 
 def get_token_for_user(user, scope):

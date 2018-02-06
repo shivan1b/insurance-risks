@@ -1,7 +1,7 @@
 # Third Party Stuff
 from django.test import TestCase
 
-from Risk.users.models import User
+from insurance.users.models import User
 
 
 class UserModelTestCase(TestCase):

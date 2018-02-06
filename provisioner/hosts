@@ -11,13 +11,13 @@ venv_path=/home/vagrant/venv
 django_requirements_file=requirements/development.txt
 django_settings="settings.development"
 use_letsencrypt=False
-pg_db=Risk
+pg_db=insurance
 pg_user=vagrant
 pg_password=vagrant
-domain_name=vagrant.Risk.com
+domain_name=vagrant.insurance.com
 
 [dev]
-dev.Risk.com
+dev.insurance.com
 
 [dev:vars]
 vm=0
@@ -30,11 +30,11 @@ use_letsencrypt=False
 letsencrypt_email=n
 django_requirements_file=requirements.txt
 django_settings="settings.production"
-domain_name=dev.Risk.com
+domain_name=dev.insurance.com
 
 
 [qa]
-qa.Risk.com
+qa.insurance.com
 
 [qa:vars]
 vm=0
@@ -47,10 +47,10 @@ use_letsencrypt=False
 letsencrypt_email=n
 django_requirements_file=requirements.txt
 django_settings="settings.production"
-domain_name=qa.Risk.com
+domain_name=qa.insurance.com
 
 [production]
-Risk.com
+insurance.com
 
 [production:vars]
 vm=0
@@ -63,4 +63,4 @@ use_letsencrypt=False
 letsencrypt_email=n
 django_requirements_file=requirements.txt
 django_settings="settings.production"
-domain_name=Risk.com
+domain_name=insurance.com

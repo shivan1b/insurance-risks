@@ -4,9 +4,9 @@ from rest_framework.decorators import list_route
 from rest_framework.permissions import AllowAny
 
 # Django Dynamic Models Stuff
-from Risk.base import response
-from Risk.base.api.mixins import MultipleSerializerMixin
-from Risk.users.services import create_user_account, get_and_authenticate_user
+from insurance.base import response
+from insurance.base.api.mixins import MultipleSerializerMixin
+from insurance.users.services import create_user_account, get_and_authenticate_user
 
 from . import serializers
 

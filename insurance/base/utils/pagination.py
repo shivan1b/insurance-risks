@@ -1,5 +1,5 @@
 # Django Dynamic Models Stuff
-from Risk.base.api.pagination import PageNumberPagination
+from insurance.base.api.pagination import PageNumberPagination
 
 
 def paginated_response(request, queryset, serializer_class, extra_context=None):

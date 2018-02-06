@@ -15,7 +15,7 @@ Note: Alternatively, you should be able configure a linux instance to run the sa
 
 ## Amazon S3
 
-Amazon Simple Storage Service ([Amazon S3]) is used to store the uploaded media files and static content. It is a scalable and cost-efficient storage solution. 
+Amazon Simple Storage Service ([Amazon S3]) is used to store the uploaded media files and static content. It is a scalable and cost-efficient storage solution.
 
 After [signing up][s3-signup] for Amazon S3, [setup][s3-iam-setup] an IAM user with access to a S3 bucket, you'll need `BUCKET_NAME`, and `AWS_ACCESS_ID` & `AWS_ACCESS_SECRET` of IAM user to setup the project.
 
@@ -23,7 +23,7 @@ After [signing up][s3-signup] for Amazon S3, [setup][s3-iam-setup] an IAM user w
 [s3-signup]: http://docs.aws.amazon.com/AmazonS3/latest/gsg/SigningUpforS3.html
 [s3-iam-setup]: https://rbgeek.wordpress.com/2014/07/18/amazon-iam-user-creation-for-single-s3-bucket-access/
 
-Note: 
+Note:
 - Heroku doesn't provide a persistent storage for uploaded content, best practise is to store the uploaded files in S3 buckets.
 - IAM user must have permission to list, update, create objects in S3.
 
@@ -96,7 +96,7 @@ For deploying on aws you need to configure all the addons provided and use pytho
 Add the following to your `~/.ssh/config` file.
 
 ```
-Host Risk.com
+Host insurance.com
     hostname <server_ip_or_>
     user ubuntu
     ForwardAgent yes
@@ -111,10 +111,10 @@ Now you can run the ansible script to setup the machine.
 
     fab prod configure
 
-This will setup os dependencies, services like supervisor, nginx and fetch our code from Github. Our production environment requires 
+This will setup os dependencies, services like supervisor, nginx and fetch our code from Github. Our production environment requires
 some environment variables in `.env`. So you can write a file `prod.env` locally and upload it to server with
 
-    scp prod.env Risk.com:/home/ubuntu/django-dynamic-models/.env
+    scp prod.env insurance.com:/home/ubuntu/django-dynamic-models/.env
 
 You can also use fab to set environment variables one by one:
 

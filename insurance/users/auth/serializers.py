@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
 # Django Dynamic Models Stuff
-from Risk.users.models import User, UserManager
+from insurance.users.models import User, UserManager
 
 from .tokens import get_token_for_user
 

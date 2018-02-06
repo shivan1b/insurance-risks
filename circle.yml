@@ -36,17 +36,17 @@ deployment:
     branch: master
     owner: shivan1b
     heroku: # add key via https://circleci.com/account/heroku
-      appname: Risk-dev
+      appname: insurance-dev
   qa:
     branch: qa
     owner: shivan1b
     heroku:
-      appname: Risk-qa
+      appname: insurance-qa
   prod:
     branch: prod
     owner: shivan1b
     heroku:
-      appname: Risk-prod
+      appname: insurance-prod
 
 ## Custom notifications
 #notify:

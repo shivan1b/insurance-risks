@@ -24,8 +24,8 @@ install:
   - pip install -r requirements/development.txt
 
 before_script:
-- export DATABASE_URL=postgres://postgres@localhost/Risk
-- psql -c "CREATE DATABASE Risk;" -U postgres
+- export DATABASE_URL=postgres://postgres@localhost/insurance
+- psql -c "CREATE DATABASE insurance;" -U postgres
 
 script:
 - flake8
@@ -45,8 +45,8 @@ deploy:
     # travis encrypt $(heroku auth:token) --add deploy.api_key
     secure: <add_heroku_auth_token_here>
   app:
-    master: Risk-dev
-    qa: Risk-qa
-    prod: Risk-prod
+    master: insurance-dev
+    qa: insurance-qa
+    prod: insurance-prod
   on:
     repo: shivan1b/django-dynamic-models

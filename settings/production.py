@@ -15,7 +15,7 @@ from django.utils import six
 
 
 from .common import *  # noqa F405
-from .common import (DATABASES, INSTALLED_APPS, 
+from .common import (DATABASES, INSTALLED_APPS,
                      REST_FRAMEWORK, TEMPLATES, env)
 
 # SITE CONFIGURATION
@@ -57,7 +57,7 @@ SITE_ID = env('DJANGO_SITE_ID', default='remote')
 # a tuple of (header_name, header_value). For any requests that come in with
 # that header/value, request.is_secure() will return True.
 # WARNING! Only set this if you fully understand what you're doing. Otherwise,
-# you may be opening yourself up to a security risk.
+# you may be opening yourself up to a security insurance.
 # This ensures that Django will be able to detect a secure connection
 # properly on Heroku.
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

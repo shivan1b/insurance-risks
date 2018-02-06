@@ -9,7 +9,7 @@ import django.utils.timezone
 from django.db import migrations, models
 
 # Django Dynamic Models Stuff
-import Risk.users.models
+import insurance.users.models
 
 
 class Migration(migrations.Migration):
@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
                 'ordering': ('-date_joined',),
             },
             managers=[
-                ('objects', Risk.users.models.UserManager()),
+                ('objects', insurance.users.models.UserManager()),
             ],
         ),
     ]

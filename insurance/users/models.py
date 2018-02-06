@@ -7,7 +7,7 @@ from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
 # Django Dynamic Models Stuff
-from Risk.base.models import UUIDModel
+from insurance.base.models import UUIDModel
 
 
 class UserManager(BaseUserManager):

@@ -22,7 +22,7 @@ HERE = dirname(__file__)
 # ==========================================================================
 #  Settings
 # ==========================================================================
-env.project_name = 'Risk'
+env.project_name = 'insurance'
 env.apps_dir = join(HERE, env.project_name)
 env.docs_dir = join(HERE, 'docs')
 env.virtualenv_dir = join(HERE, 'venv')
@@ -102,8 +102,8 @@ def dev():
     env.host_group = 'dev'
     env.remote = 'origin'
     env.branch = 'master'
-    env.hosts = ['dev.Risk.com']
-    env.dotenv_path = '/home/ubuntu/dev/Risk/.env'
+    env.hosts = ['dev.insurance.com']
+    env.dotenv_path = '/home/ubuntu/dev/insurance/.env'
     env.config_setter = fab.run
 
 
@@ -111,8 +111,8 @@ def qa():
     env.host_group = 'qa'
     env.remote = 'origin'
     env.branch = 'qa'
-    env.hosts = ['qa.Risk.com']
-    env.dotenv_path = '/home/ubuntu/qa/Risk/.env'
+    env.hosts = ['qa.insurance.com']
+    env.dotenv_path = '/home/ubuntu/qa/insurance/.env'
     env.config_setter = fab.run
 
 
@@ -120,8 +120,8 @@ def prod():
     env.host_group = 'production'
     env.remote = 'origin'
     env.branch = 'prod'
-    env.hosts = ['prod.Risk.com']
-    env.dotenv_path = '/home/ubuntu/prod/Risk/.env'
+    env.hosts = ['prod.insurance.com']
+    env.dotenv_path = '/home/ubuntu/prod/insurance/.env'
     env.config_setter = fab.run
 
 

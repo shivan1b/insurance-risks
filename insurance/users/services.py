@@ -2,7 +2,7 @@
 from django.contrib.auth import get_user_model, authenticate
 
 # Django Dynamic Models Stuff
-from Risk.base import exceptions as exc
+from insurance.base import exceptions as exc
 
 
 def get_and_authenticate_user(email, password):

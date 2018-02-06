@@ -9,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 ROOT_DIR = environ.Path(__file__) - 2  # (/a/b/myfile.py - 2 = /a/)
-APPS_DIR = ROOT_DIR.path('Risk')
+APPS_DIR = ROOT_DIR.path('insurance')
 
 env = environ.Env()
 
@@ -27,8 +27,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # 'django.contrib.humanize',  # Useful template tags
 
-    'Risk.base',
-    'Risk.users',
+    'insurance.base',
+    'insurance.users',
 
     'rest_framework',  # http://www.django-rest-framework.org/
     'rest_framework_swagger',
@@ -67,7 +67,7 @@ API_DEBUG = env.bool('API_DEBUG', default=False)
 # rest_framework
 # ------------------------------------------------------------------------------
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'Risk.base.api.pagination.PageNumberPagination',
+    'DEFAULT_PAGINATION_CLASS': 'insurance.base.api.pagination.PageNumberPagination',
     'PAGE_SIZE': 30,
 
     # Default renderer classes for Rest framework
@@ -100,7 +100,7 @@ REST_FRAMEWORK = {
         # Mainly used for api debug.
         'rest_framework.authentication.SessionAuthentication',
     ),
-    'EXCEPTION_HANDLER': 'Risk.base.exceptions.exception_handler',
+    'EXCEPTION_HANDLER': 'insurance.base.exceptions.exception_handler',
 }
 # DJANGO_SITES
 # ------------------------------------------------------------------------------
@@ -188,7 +188,7 @@ WSGI_APPLICATION = 'wsgi.application'
 
 # URL CONFIGURATION
 # ------------------------------------------------------------------------------
-ROOT_URLCONF = 'Risk.urls'
+ROOT_URLCONF = 'insurance.urls'
 
 
 # Use this to change base url path django admin
@@ -203,7 +203,7 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND',
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres://localhost/Risk'),
+    'default': env.db('DATABASE_URL', default='postgres://localhost/insurance'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 DATABASES['default']['CONN_MAX_AGE'] = 10
@@ -226,7 +226,7 @@ TEMPLATES = [
             ],
             # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
             'context_processors': [
-                'Risk.base.context_processors.site_settings',
+                'insurance.base.context_processors.site_settings',
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.i18n',
@@ -241,7 +241,7 @@ TEMPLATES = [
     },
 ]
 
-CSRF_FAILURE_VIEW = 'Risk.base.views.csrf_failure'
+CSRF_FAILURE_VIEW = 'insurance.base.views.csrf_failure'
 
 # STATIC FILE CONFIGURATION
 # -----------------------------------------------------------------------------
@@ -371,7 +371,7 @@ LOGGING = {
             'level': 'INFO',
             'propagate': False,
         },
-        'Risk': {
+        'insurance': {
             'handlers': ['console'],
             'level': 'INFO',
             'propagate': False,
@@ -389,8 +389,8 @@ LOGGING = {
 
 
 def get_release():
-    import Risk
-    release = Risk.__version__
+    import insurance
+    release = insurance.__version__
     return release
 
 
