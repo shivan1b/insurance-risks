@@ -36,6 +36,8 @@ INSTALLED_APPS = (
     'corsheaders',   # https://github.com/ottoyiu/django-cors-headers/
 
     'compressor',
+
+    'insurance.risk',
 )
 
 # INSTALLED APPS CONFIGURATION
