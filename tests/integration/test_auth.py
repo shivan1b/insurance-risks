@@ -5,7 +5,7 @@ import json
 import pytest
 from django.urls import reverse
 
-from .. import factories as f
+from ..factories import base as f
 
 pytestmark = pytest.mark.django_db
 

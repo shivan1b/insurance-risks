@@ -23,3 +23,12 @@ def create_user(**kwargs):
     user.set_password(kwargs.get('password', 'test'))
     user.save()
     return user
+
+
+def C(app_name, model_name, **kwargs):
+    """Takes the app & model name, and performs the same operations as `G`
+
+    Creates a valid & persisted instance, filled with dynamically generated data
+    """
+    model_cls = apps.get_model(app_name, model_name)
+    return G(model_cls, **kwargs)
