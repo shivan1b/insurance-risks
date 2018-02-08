@@ -1,7 +1,11 @@
+# Standard Library
+from enum import Enum
+
+# Third Party Stuff
 from django.db import models
 
+# Django Dynamic Models Stuff
 from insurance.base.models import TimeStampedUUIDModel
-from enum import Enum
 
 
 class Risk(TimeStampedUUIDModel):
