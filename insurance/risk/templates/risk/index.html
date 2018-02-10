@@ -1,0 +1,30 @@
+{% load staticfiles i18n %}
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<form method="post">
+  <div id="fieldtype" align=center>
+      <ul>
+        <li v-for="s in {{ String }}" align="center">
+            <label for="char_f">[[ s ]]</label>
+            <input v-model="message" id="char_f">
+        </br>
+        </li>
+        <li v-for="i in {{ Integer }}" align="center">
+            <label for="int_f">[[ i ]]</label>
+            <input v-model="message" id="int_f">
+        </br>
+        </li>
+    </br>
+    </br>
+  <input type="submit" value="Submit">
+  </div>
+</form>
+<script type="text/javascript">
+  new Vue({
+    delimiters: ['[[', ']]'],
+    el: '#fieldtype',
+    data: {
+      message: '',
+    }
+});
+</script>

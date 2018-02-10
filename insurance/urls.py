@@ -15,6 +15,8 @@ from . import routers
 from .base import views as base_views
 from .base.api import schemas as api_schemas
 
+from insurance.risk import urls as risk_urls
+
 admin.site.site_title = admin.site.site_header = 'Django Dynamic Models Administration'
 handler500 = base_views.server_error
 
@@ -23,7 +25,7 @@ handler500 = base_views.server_error
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
-    # Your stuff: custom urls go here
+    url(r'', include(risk_urls)),
 ]
 
 urlpatterns += [
