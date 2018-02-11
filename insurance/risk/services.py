@@ -1,3 +1,6 @@
+# Standard Library
+import ast
+
 from .models import RiskField
 
 
@@ -22,9 +25,15 @@ def get_risk_data_for_context(risk):
     '''
     riskfield_qs = RiskField.objects.filter(risk=risk)
     context, type_map = get_type_map()
+    context['risk'] = risk.name.title()
 
     for rf in riskfield_qs:
         rtype = type_map[rf.ftype]
-        context[rtype].append(rf.name)
+        rname = rf.name.title()
+        if rtype == 'Choices' and rf.value:
+            value = ast.literal_eval(rf.value)
+            context[rtype].append({rname: value})
+        else:
+            context[rtype].append(rname)
 
     return context
