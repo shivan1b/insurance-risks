@@ -34,6 +34,7 @@ class RiskField(TimeStampedUUIDModel):
 
     risk = models.ForeignKey(Risk)
     name = models.CharField(max_length=200)
+    value = models.CharField(max_length=200, blank=True)
     ftype = models.CharField(
         max_length=2,
         choices=[x.value for x in FTYPE],
