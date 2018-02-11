@@ -1,53 +1,65 @@
-<h2>{{ risk }} Risk Insurance</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
+  <title>Insurance</title>
+</head>
+<body style="padding:2rem;">
 
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
+  <h2 class="text-center">{{ risk }} Risk Insurance</h2>
 
-<form method="post">
-  {% csrf_token %}
-  <div id="fieldtype" align=center>
-    <table style="width:100%">
-      <tr v-for="s in {{ String }}" align="center">
-        <td><label for="char_f">[[ s ]]</label></td>
-        <td><input v-model="message" id="char_f"></td>
-      </tr>
-      <tr v-for="i in {{ Integer }}" align="center">
-        <td><label for="int_f">[[ i ]]</label></td>
-        <td><input v-model="message" id="int_f"></td>
-      </br>
-      </tr>
-      <tr v-for="choice, index in {{ Choices.0 }}" align="center">
-        <td><label>[[ index ]]</label></td>
-        <td><select v-model="selected">
-          <option disabled value="">Select</option>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+  <script src=https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+
+  <form method="post">
+    {% csrf_token %}
+    <div id="fieldtype" align=center>
+      <table style="width:100%" class="table">
+        <tr v-for="s in {{ String }}" align="center">
+          <td><label for="char_f">[[ s ]]</label></td>
+          <td><input v-model="message" id="char_f"></td>
+        </tr>
+        <tr v-for="i in {{ Integer }}" align="center">
+          <td><label for="int_f">[[ i ]]</label></td>
+          <td><input v-model="message" id="int_f"></td>
+        </br>
+        </tr>
+        <tr v-for="choice, index in {{ Choices.0 }}" align="center">
+          <td><label>[[ index ]]</label></td>
+          <td><select v-model="selected">
+            <option disabled value="">Select</option>
             <option v-for="opt in choice">[[ opt ]]</option>
-        </select></td>
-      </tr>
-      <tr v-for="d in {{ DateTime }}" align="center">
-        <td><label for="pickdate">[[ d ]]</label></td>
-        <td><input type="text" id="pickdate" v-model="pickdate"></td>
-      </tr>
-    </table>
-    </br>
-    <input type="submit" value="Submit">
-  </div>
-</form>
+          </select></td>
+        </tr>
+        <tr v-for="d in {{ DateTime }}" align="center">
+          <td><label for="pickdate">[[ d ]]</label></td>
+          <td><input type="text" id="pickdate" v-model="pickdate"></td>
+        </tr>
+      </table>
+      </br>
+      <input type="submit" value="Submit">
+    </div>
+  </form>
 
-<script type="text/javascript">
-  new Vue({
-    delimiters: ["[[", "]]"],
-    el: "#fieldtype",
-    data: {
-      message: "",
-      pickdate: "",
-      selected: ""
-    },
-     mounted() {
-      $("#pickdate").datepicker().on(
-        "changeDate", () => {this.pickdate = $("#pickdate").val()}
-    );
-    }
-});
-</script>
+  <script type="text/javascript">
+    new Vue({
+      delimiters: ["[[", "]]"],
+      el: "#fieldtype",
+      data: {
+        message: "",
+        pickdate: "",
+        selected: ""
+      },
+       mounted() {
+        $("#pickdate").datepicker().on(
+          "changeDate", () => {this.pickdate = $("#pickdate").val()}
+      );
+      }
+  });
+  </script>
+
+</body>
+</html>
