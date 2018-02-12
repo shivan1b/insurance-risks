@@ -1,55 +1,55 @@
-Django Dynamic Models
+Insurance Risks
 ==============================
 
 __Version:__ 0.0.1
 
-Dynamic models for Django and a wrapper app around it.
+An insurance risk app that lets the insurer add risks and as many number of fields of different types as they want.
 
 ## Getting up and running
 
-Minimum requirements: **pip, fabric, python3 & [postgres][install-postgres]**, setup is tested on Mac OSX only.
+Minimum requirements: **pip, zappa, python3.6 & [postgres][install-postgres]**, setup is tested on Linux (Debian family) only.
 
 ```
-brew install postgres python3
-[sudo] pip install fabric
+sudo apt install postgres
+pip install zappa
 ```
 
-[install-postgres]: http://www.gotealeaf.com/blog/how-to-install-postgresql-on-a-mac
+[install-postgres]: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04
 
 In your terminal, type or copy-paste the following:
 
-    git clone git@github.com:shivan1b/django-dynamic-models.git; cd django-dynamic-models; fab init
+    git clone git@github.com:shivan1b/django-dynamic-models.git; cd django-dynamic-models; virtualenv -p python3.6 venv; source venv/bin/activate
 
 Go grab a cup of coffee, we bake your hot development machine.
 
 Useful commands:
 
-- `fab serve` - start [django server](http://localhost:8000/)
-- `fab deploy_docs` - deploy docs to server
-- `fab test` - run the test locally with ipdb
+- python manage.py runserver
+- zappa init
 
-**NOTE:** Checkout `fabfile.py` for all the options available and what/how they do it.
+**NOTE:** Make sure your AWS credentials ae in place. Checkout `zappa_settings.json` for all the information related to deployment.
 
 
 ## Deploying Project
 
-The deployment are managed via travis, but for the first time you'll need to set the configuration values on each of the server.
+Make sure you install and run `zappa` in virtual environment.
+Deploying the project is as simple as
+```
+zappa deploy <environment_name>
+````
 
-Check out detailed server setup instruction [here](docs/backend/server_config.md).
+After making any updates to the project, just do
+```
+zappa update <environment_name>
+```
 
-## How to release Django Dynamic Models
+## How to release Insurance risks
 
 Execute the following commands:
 
 ```
 git checkout master
-fab test
-bumpversion patch  # 'patch' can be replaced with 'minor' or 'major'
 git push origin master
-git push origin master --tags
-git checkout qa
-git rebase master
-git push origin qa
 ```
 
 ## Contributing
