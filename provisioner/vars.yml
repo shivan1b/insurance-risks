@@ -1,7 +1,0 @@
----
-project_name: insurance
-project_repo_url: git@github.com:shivan1b/django-dynamic-models.git
-project_repo_remote: origin
-repo_version: master
-pg_gis: False
-sass_with_django_compressor: True
