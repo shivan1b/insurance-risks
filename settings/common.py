@@ -4,12 +4,15 @@ see: https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 # Third Party Stuff
+import os.path
 import environ
 from django.utils.translation import ugettext_lazy as _
+from dotenv import load_dotenv
 
 
 ROOT_DIR = environ.Path(__file__) - 2  # (/a/b/myfile.py - 2 = /a/)
 APPS_DIR = ROOT_DIR.path('insurance')
+load_dotenv(os.path.join(os.path.abspath(os.path.join(__file__, os.pardir)), '.env'))
 
 env = environ.Env()
 

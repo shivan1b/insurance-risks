@@ -1,11 +1,10 @@
 {
     "dev": {
         "aws_region": "ap-south-1", 
-        "django_settings": "settings/production.py", 
+        "django_settings": "settings.development",
         "profile_name": "default", 
         "project_name": "insurance-risks", 
         "runtime": "python3.6", 
-        "s3_bucket": "zappa-insurance",
-        "slim_handler": "true"
+        "s3_bucket": "zappa-insurance"
     }
 }
