@@ -21,7 +21,7 @@ django-sites==0.10
 django-storages==1.6.5
 django-uuid-upload-path==1.0.0
 django-versatileimagefield==1.8.1
-djangorestframework==3.7.7
+djangorestframework==3.11.2
 
 # Shell
 # -----------------------
