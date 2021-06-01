@@ -110,7 +110,7 @@ traitlets==4.3.2
 troposphere==2.2.0
 Unidecode==1.0.22
 uritemplate==3.0.0
-urllib3==1.22
+urllib3==1.26.5
 uWSGI==2.0.15
 watchdog==0.8.3
 wcwidth==0.1.7
