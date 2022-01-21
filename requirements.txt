@@ -25,7 +25,7 @@ djangorestframework==3.7.7
 
 # Shell
 # -----------------------
-ipython==5.5.0
+ipython==7.16.3
 ipython-genutils==0.2.0
 
 # Debugging
