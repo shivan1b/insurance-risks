@@ -125,7 +125,7 @@ base58==0.2.4
 boto3==1.5.9
 botocore==1.8.37
 bumpversion==0.5.3
-certifi==2018.1.18
+certifi==2022.12.7
 cffi==1.11.4
 cfn-flip==1.0.0
 chardet==3.0.4
